@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {ajax} from 'jquery';
-
+import SimpleMap from './googleapi.js';
 // Make an api call that will store into an array of objects with the following:
 // name of school
 // level
@@ -31,7 +31,9 @@ export default class School extends React.Component {
 					name: school.name,
 					level: school.level[0],
 					type: school.type,
-					language: school.language
+					language: school.language,
+					latitude: school.latitude,
+					longitude: school.longitude
 					// store boundaries and address
 				}
 			});
@@ -45,6 +47,7 @@ export default class School extends React.Component {
 		return (
 			<div>
 				<h1>Featured schools</h1>
+				<SimpleMap />
 			</div>
 		)
 	}
