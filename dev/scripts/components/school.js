@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {ajax} from 'jquery';
-import SimpleMap from './googleapi.js';
+import SimpleMap from './map.js';
 // Make an api call that will store into an array of objects with the following:
 // name of school
 // level
@@ -27,16 +27,23 @@ export default class School extends React.Component {
 		.then((res) => {
 			console.log(res);
 			let schools = res.map((school) => {
+				let boundariesArray = school.boundaries.secondary[0];
 				return {
 					name: school.name,
 					level: school.level[0],
 					type: school.type,
 					language: school.language,
 					latitude: school.latitude,
-					longitude: school.longitude
-					// store boundaries and address
+					longitude: school.longitude,
+					boundaries: boundariesArray.map((boundary) => {
+						return {
+							lat: boundary[0],
+							lng: boundary[1]
+						}
+					})
 				}
 			});
+
 			console.log(schools);
 			this.setState({
 				schools
@@ -47,7 +54,7 @@ export default class School extends React.Component {
 		return (
 			<div>
 				<h1>Featured schools</h1>
-				<SimpleMap />
+				<Card about={this.state.schools} />
 			</div>
 		)
 	}
@@ -56,7 +63,22 @@ export default class School extends React.Component {
 const Card = (props) => {
 	return (
 		<div>
-			
+			{props.about.map((school, i) => {
+				return (
+					<div key={`school-${i}`} className="school__card">
+						<SimpleMap 
+							lat={school.latitude}
+							lng={school.longitude}
+							boundaries={school.boundaries}
+							i={`school-${i}`} 
+						/>
+						<h3>{school.name}</h3>
+						<h4>{school.level}</h4>
+						<p>{school.type} | {school.language}</p>
+						<div className="keyline"></div>
+					</div>
+				)
+			})}
 		</div>
 	)
 }
