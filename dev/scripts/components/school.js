@@ -70,7 +70,7 @@ export default class School extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>Featured schools</h1>
+				<h1 className="title">Featured schools</h1>
 				<Card about={this.state.schools} />
 			</div>
 		)

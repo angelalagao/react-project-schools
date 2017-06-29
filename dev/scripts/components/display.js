@@ -26,9 +26,9 @@ export default class Display extends React.Component {
 	}
 	render() {
 		return (
-			<div>
-				<h1>Bacon Ipsum</h1>
-				<p>Consectetur in ground round landjaeger. Tempor ut sausage spare ribs cupim brisket biltong cupim jerky meatloaf in lorem.</p>
+			<div className="wrapper">
+				<h1 className="title">Bacon Ipsum</h1>
+				<p className="title__text">Consectetur in ground round landjaeger. Tempor ut sausage spare ribs cupim brisket biltong cupim jerky meatloaf in lorem.</p>
 				<div className="about">
 					{this.state.about.map((about, i) => {
 						return (
@@ -49,7 +49,8 @@ const Single = (props) => {
 	return (
 		<div className="about__single">
 			<ReactSVG path={props.svg} />
-			<h3>{props.title}</h3>
+			<h3 className="about__title">{props.title}</h3>
+			<div className="keyline"></div>
 			<p>{props.content}</p>
 		</div>
 	)

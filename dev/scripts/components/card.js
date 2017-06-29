@@ -47,8 +47,9 @@ export default class Card extends React.Component {
 	render() {
 		return (
 			<div className="carousel">
-				<i onClick={this.handleClickLeft}
-					className="fa fa-chevron-circle-left left-arrow" aria-hidden="true"></i>
+				<button onClick={this.handleClickLeft}>
+					<i className="fa fa-chevron-circle-left left-arrow" aria-hidden="true"></i>
+				</button>
 				{this.props.about.map((school) => {
 					return (
 						<Link to={`/${school.slug}`} id={`card-${school.id}`} key={`card-${school.id}`}>
@@ -67,8 +68,9 @@ export default class Card extends React.Component {
 						</Link>
 					)
 				})}
-				<i onClick={this.handleClickRight}
-					className="fa fa-chevron-circle-right right-arrow" aria-hidden="true"></i>
+				<button onClick={this.handleClickRight}>
+					<i className="fa fa-chevron-circle-right right-arrow" aria-hidden="true"></i>
+				</button>
 				<Route exact path="/:school" component={SchoolName} />
 			</div>
 		)

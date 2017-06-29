@@ -1,4 +1,49 @@
+@import 'partials/variables'; 
+
 .map, .map__single {
 	width: 100%;
-	height: 400px;
+	height: 200px;
+}
+
+.wrapper {
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.title {
+	text-align: center;
+}
+
+.title__text {
+	width: 55%;
+	margin: 0 auto;
+}
+
+.about {
+	margin: 70px 0;
+	display: flex;
+}
+
+.about__title {
+	color: $blueColor;
+}
+
+.about__single {
+	width: calc(33% - 40px);
+	margin: 20px;
+	text-align: center;
+}
+
+.carousel {
+	width: 85%;
+	margin: 0 auto;
+	// display: flex;
+	// // flex-wrap: wrap;
+	// justify-content: center;
+	// align-items: center;
+}
+
+.school__card {
+	width: 100%;
 }
