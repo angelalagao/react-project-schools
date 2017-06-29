@@ -14,6 +14,7 @@ export default class Card extends React.Component {
 				{this.props.about.map((school) => {
 					return (
 						<div id={`card-${school.id}`} key={`card-${school.id}`}>
+							{/*<Carousel>*/}
 							<Link to={`/${school.slug}`}>
 								<div className="school__card">
 									<SimpleMap 
@@ -28,19 +29,28 @@ export default class Card extends React.Component {
 									<div className="keyline"></div>
 								</div>
 							</Link>
-							<Route path="/:school" render={() => <SchoolName name={school.name}/>} />
+							{/*</Carousel>*/}
 						</div>
 					)
 				})}
+				<Route exact path="/:school" component={SchoolName} />
 			</div>
 		)
 	}
 }
 
-const SchoolName = (props) => {
-	return (
-		<div>
-			<h1>{props.name}</h1>
-		</div>
-	)
+export class SchoolName extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			school: this.props.match.params.school.replace(/[_-]/g, " ")
+		}
+	}
+	render() {
+		return (
+			<div>
+				<h1>{this.state.school.toUpperCase()}</h1>
+			</div>
+		)
+	}
 }
