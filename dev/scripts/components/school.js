@@ -24,16 +24,16 @@ export default class School extends React.Component {
 			dataType: 'json'
 		})
 		.then((res) => {
-			console.log(res);
 			let boundariesArray;
 			let boundaries;
 			let schools = res.map((school) => {
+				// concatenating arrays if the data recieved has more than 1 array of boundaries
 				if (school.boundaries.secondary[1]) {
 					boundariesArray = [...school.boundaries.secondary[0], ...school.boundaries.secondary[1]];
 				} else {
 					boundariesArray = school.boundaries.secondary[0];
 				}
-
+				// concatenating boundaries arrays for different school levels
 				if (school.boundaries.secondary && school.boundaries.elementary) {
 					let boundariesConcat = [...school.boundaries.secondary, ...school.boundaries.elementary];
 					let boundariesConcatFinal = [...boundariesConcat[0], ...boundariesConcat[1], ...boundariesConcat[2]];
@@ -58,12 +58,10 @@ export default class School extends React.Component {
 					latitude: school.latitude,
 					longitude: school.longitude,
 					boundaries: boundaries,
-					slug: school.slug,
-					id: school.id
+					slug: school.slug, // for dasherized url
+					id: school.id // for key
 				}
 			});
-
-			console.log(schools);
 			this.setState({
 				schools
 			})

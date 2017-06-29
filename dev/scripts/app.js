@@ -15,6 +15,7 @@ class App extends React.Component {
 				<div>
 					<Display />
 					<School />
+					<Route exact path="/"/>
 				</div>
 			</Router>
 		)
