@@ -9,8 +9,8 @@ import SimpleMap from './map.js';
 
 
 export default class Card extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			cards: [],
 			currentCard: 0
@@ -75,7 +75,10 @@ export default class Card extends React.Component {
 		)
 	}
 	componentDidMount() {
-
+		const schools = this.props.about
+		this.setState({
+			cards: schools
+		});
 	}
 }
 

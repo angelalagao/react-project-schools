@@ -9,6 +9,8 @@ export default class Carousel extends React.Component {
 	constructor() {
 		super();
 		this.state = {
+			cards: [],
+			currentCard: 0,
 			
 		}
 	}
