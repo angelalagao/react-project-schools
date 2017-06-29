@@ -24,7 +24,7 @@ export default class SimpleMap extends React.Component {
 			const geocoder = new google.maps.Geocoder();
 
 			const map = new google.maps.Map(document.getElementById(`${this.state.i}`), {
-				zoom: 13,
+				zoom: 12,
 				center: {lat: this.state.lat, lng: this.state.lng}
 			});
 			const customMarker = {

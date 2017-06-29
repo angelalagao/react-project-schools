@@ -47,12 +47,11 @@ export default class Card extends React.Component {
 	render() {
 		return (
 			<div className="carousel">
-				<button onClick={this.handleClickLeft}>
-					<i className="fa fa-chevron-circle-left left-arrow" aria-hidden="true"></i>
-				</button>
+				<i onClick={this.handleClickLeft} className="fa fa-chevron-circle-left left-arrow" aria-hidden="true"></i>
 				{this.props.about.map((school) => {
 					return (
-						<Link to={`/${school.slug}`} id={`card-${school.id}`} key={`card-${school.id}`}>
+						<Link to={`/${school.slug}`} 
+								className="school__link" id={`card-${school.id}`} key={`card-${school.id}`}>
 							<div className="school__card">
 								<SimpleMap 
 									lat={school.latitude}
@@ -60,17 +59,17 @@ export default class Card extends React.Component {
 									boundaries={school.boundaries}
 									i={`map-${school.id}`} 
 								/>
-								<h3>{school.name}</h3>
-								<h4>{school.level}</h4>
-								<p>{school.type} | {school.language}</p>
-								<div className="keyline"></div>
+								<div className="school__info">
+									<h3>{school.name}</h3>
+									<h4 className="school__level">{school.level}</h4>
+									<p>{school.type} | {school.language}</p>
+									<div className="keyline"></div>
+								</div>
 							</div>
 						</Link>
 					)
 				})}
-				<button onClick={this.handleClickRight}>
-					<i className="fa fa-chevron-circle-right right-arrow" aria-hidden="true"></i>
-				</button>
+				<i onClick={this.handleClickRight} className="fa fa-chevron-circle-right right-arrow" aria-hidden="true"></i>
 				<Route exact path="/:school" component={SchoolName} />
 			</div>
 		)
@@ -81,16 +80,10 @@ export default class Card extends React.Component {
 }
 
 export class SchoolName extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			school: this.props.match.params.school.replace(/[_-]/g, " ")
-		}
-	}
 	render() {
 		return (
 			<div>
-				<h1>{this.state.school.toUpperCase()}</h1>
+				<h1>{this.props.match.params.school.replace(/[_-]/g, " ").toUpperCase()}</h1>
 			</div>
 		)
 	}

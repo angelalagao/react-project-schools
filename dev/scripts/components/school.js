@@ -24,6 +24,7 @@ export default class School extends React.Component {
 			dataType: 'json'
 		})
 		.then((res) => {
+			console.log(res);
 			let boundariesArray;
 			let boundaries;
 			let schools = res.map((school) => {
