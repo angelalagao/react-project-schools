@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import ReactSVG from 'react-svg';
 
 export default class Display extends React.Component {

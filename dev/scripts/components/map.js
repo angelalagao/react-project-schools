@@ -21,16 +21,32 @@ export default class SimpleMap extends React.Component {
 	}
 	componentDidMount() {
 		const initMap = () => {
-			let geocoder = new google.maps.Geocoder();
+			const geocoder = new google.maps.Geocoder();
 
-			let map = new google.maps.Map(document.getElementById(`${this.state.i}`), {
-				zoom: 18,
+			const map = new google.maps.Map(document.getElementById(`${this.state.i}`), {
+				zoom: 13,
 				center: {lat: this.state.lat, lng: this.state.lng}
 			});
-			let marker = new google.maps.Marker({
+			const customMarker = {
+				url: '../../icons/school-pin.svg',
+				size: new google.maps.Size(50, 70),
+				anchor: new google.maps.Point(0, 70),
+				scaledSize: new google.maps.Size(50, 70)
+			}
+			const marker = new google.maps.Marker({
 				position: {lat: this.state.lat, lng: this.state.lng},
-				map: map
-			})
+				map: map,
+				icon: customMarker
+			});
+			const boundaries = new google.maps.Polygon({
+				paths: this.state.boundaries,
+				strokeColor: '#696969',
+				strokeOpacity: 0.8,
+				strokeWeight: 3,
+				fillColor: '#c0c0c0',
+				fillOpacity: 0.35
+			});
+			boundaries.setMap(map);
 		}
 		initMap();
 	}
