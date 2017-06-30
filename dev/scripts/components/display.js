@@ -5,6 +5,7 @@ export default class Display extends React.Component {
 	constructor() {
 		super();
 		this.state = {
+			// storing the about content
 			about: [
 			{
 				svg: '../../icons/hamburger.svg',
@@ -44,7 +45,7 @@ export default class Display extends React.Component {
 		)
 	}
 }
-
+// Each about card is rendered dynamically from the Display state passed down as props
 const Single = (props) => {
 	return (
 		<div className="about__single">

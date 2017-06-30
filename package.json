@@ -28,6 +28,7 @@
     "react-google-maps": "^6.3.0",
     "react-inlinesvg": "^0.6.0",
     "react-router-dom": "^4.1.1",
+    "react-slick": "^0.14.11",
     "react-svg": "^2.1.21",
     "underscore": "^1.8.3",
     "vinyl-buffer": "^1.0.0",

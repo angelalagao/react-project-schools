@@ -20,7 +20,10 @@ export default class Card extends React.Component {
 		this.getCards = this.getCards.bind(this);
 	}
 	getCards() {
-
+		// INCOMPLETE
+		// want to pass each card component in a cards array to give each an index
+		// using the index - update the currentCard state on click of arrows
+		// display only 3 at a time for desktop, 2 on tablet and 1 for mobile
 	}
 	handleClickLeft() {
 		if (this.state.currentCard === 0) {
@@ -81,7 +84,7 @@ export default class Card extends React.Component {
 		});
 	}
 }
-
+// each link will render the unique school name as an h1
 export class SchoolName extends React.Component {
 	render() {
 		return (

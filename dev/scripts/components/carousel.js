@@ -5,6 +5,7 @@ import React from 'react';
 // on click of prev button - will -1 to the index of the current displayed card in the array
 // on click of next button - will +1 to the index of the current displayed card in the array
 
+// incomplete
 export default class Carousel extends React.Component {
 	constructor() {
 		super();

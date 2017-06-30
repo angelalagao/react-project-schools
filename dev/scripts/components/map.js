@@ -22,7 +22,7 @@ export default class SimpleMap extends React.Component {
 	componentDidMount() {
 		const initMap = () => {
 			const geocoder = new google.maps.Geocoder();
-
+			// making sure each map has a unique id 
 			const map = new google.maps.Map(document.getElementById(`${this.state.i}`), {
 				zoom: 12,
 				center: {lat: this.state.lat, lng: this.state.lng}
@@ -38,6 +38,7 @@ export default class SimpleMap extends React.Component {
 				map: map,
 				icon: customMarker
 			});
+			// boundaries are passed in
 			const boundaries = new google.maps.Polygon({
 				paths: this.state.boundaries,
 				strokeColor: '#696969',
