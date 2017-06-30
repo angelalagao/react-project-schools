@@ -56,14 +56,14 @@
 
 /* Portrait tablet and small desktops */
 @media (max-width: 940px) {
-
+	.school__link {
+		width: calc(50% - 40px);
+	}
 }
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
-	.school__link {
-		width: calc(50% - 40px);
-	}
+
 }
 
 /* Landscape phones and down */
